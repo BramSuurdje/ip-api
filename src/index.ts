@@ -11,7 +11,7 @@ app.get('/ip4', (c) => {
     c.req.header('x-real-ip') ||
     'unknown';
   
-  return c.json({ ip })
+  return c.text( ip )
 })
 
 // Main page with a simple UI
