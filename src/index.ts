@@ -1,6 +1,5 @@
 import { Hono } from 'hono'
 import { html } from 'hono/html'
-import { serveEmojiFavicon } from 'stoker/middlewares';
 
 const app = new Hono()
 
