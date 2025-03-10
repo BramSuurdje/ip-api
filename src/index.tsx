@@ -57,7 +57,7 @@ app.get('/', (c) => {
         
         <script>
           // Fetch the IP on page load
-          fetch('/api/ip')
+          fetch('/ip4')
             .then(res => res.json())
             .then(data => {
               document.getElementById('ip').textContent = data.ip;
