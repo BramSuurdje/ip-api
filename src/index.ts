@@ -1,5 +1,4 @@
 import { Hono } from 'hono'
-import { serveStatic } from 'hono/serve-static'
 import { html } from 'hono/html'
 
 const app = new Hono()
