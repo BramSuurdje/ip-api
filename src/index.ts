@@ -1,7 +1,10 @@
 import { Hono } from 'hono'
 import { html } from 'hono/html'
+import { serveEmojiFavicon } from 'stoker/middlewares';
 
 const app = new Hono()
+
+app.use(serveEmojiFavicon("🔎"));
 
 // API endpoint that returns just the IP
 app.get('/ip4', (c) => {
