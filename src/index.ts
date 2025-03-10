@@ -11,7 +11,7 @@ app.get('/ip4', (c) => {
     c.req.header('x-real-ip') ||
     'unknown';
   
-  return c.text( ip )
+  return c.text(ip)
 })
 
 // Main page with a simple UI
@@ -29,22 +29,35 @@ app.get('/', (c) => {
             max-width: 600px;
             margin: 0 auto;
             padding: 2rem;
+            background: #18181b;
+            color: white;
             text-align: center;
+          }
+          .made-by {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+          }
+          .bram-button {
+            color: #fff;
+            text-decoration: underline;
           }
           .ip-display {
             font-size: 2rem;
             margin: 2rem 0;
             padding: 1rem;
-            background: #f5f5f5;
+            background-color: #3f3f46;
             border-radius: 8px;
             word-break: break-all;
           }
           button {
             padding: 0.5rem 1rem;
-            background: #0070f3;
-            color: white;
+            background: #f4f4f4;
+            color: black;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
             cursor: pointer;
           }
         </style>
@@ -53,24 +66,22 @@ app.get('/', (c) => {
         <h1>What's My IP?</h1>
         <div class="ip-display" id="ip">Loading...</div>
         <button onclick="copyIP()">Copy to Clipboard</button>
+        <div class="made-by">made with love by <a class="bram-button" target="_blank" href="https://bramsuurd.nl">Bram Suurd</a></div>
         
         <script>
           // Fetch the IP on page load
           fetch('/ip4')
-            .then(res => res.json())
-            .then(data => {
-              document.getElementById('ip').textContent = data.ip;
-            })
-            .catch(err => {
-              document.getElementById('ip').textContent = 'Error getting IP';
-            });
-          
+          .then(res => res.text())
+          .then(ip => {
+            document.getElementById('ip').textContent = ip;
+          })
+          .catch(err => {
+            document.getElementById('ip').textContent = 'Error getting IP';
+          });
           // Copy to clipboard function
           function copyIP() {
             const ip = document.getElementById('ip').textContent;
             navigator.clipboard.writeText(ip)
-              .then(() => alert('IP copied to clipboard!'))
-              .catch(err => alert('Failed to copy IP'));
           }
         </script>
       </body>
