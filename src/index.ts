@@ -4,8 +4,6 @@ import { serveEmojiFavicon } from 'stoker/middlewares';
 
 const app = new Hono()
 
-app.use(serveEmojiFavicon("🔎"));
-
 // API endpoint that returns just the IP
 app.get('/ip4', (c) => {
   const ip = 
@@ -25,6 +23,8 @@ app.get('/', (c) => {
       <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script defer src="https://analytics.bramsuurd.nl/script.js" data-website-id="835132ac-b6a5-4e25-986b-6f879540dd1e"></script>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔎</text></svg>">
         <title>What's My IP?</title>
         <style>
           body {
