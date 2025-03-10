@@ -40,7 +40,7 @@ app.get('/', (c) => {
             right: 0;
             padding: 2rem;
           }
-          .bram-button {
+          .support-button {
             color: #fff;
             text-decoration: underline;
           }
